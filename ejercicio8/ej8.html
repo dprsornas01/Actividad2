@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 8 - Votaciones en gráfico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .vote-button, .btn-back {
+        border: 1px solid blue;
+        background-color: white;
+        color: blue;
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+      }
+      .vote-button:hover, .btn-back:hover {
+        background-color: blue;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .reset-button {
+        border: 1px solid red;
+        background-color: white;
+        color: red;
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+      }
+      .reset-button:hover {
+        background-color: red;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .chart-container {
+        position: relative;
+        width: 80%; /* Ajusta el tamaño del gráfico para que no ocupe toda la pantalla */
+        margin: auto;
+      }
+      .btn-back {
+        border: 1px solid blue;
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 12px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+      }
+      .btn-back:hover {
+        background-color: white;
+        color: blue;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Votaciones</h1>
+      <div class="btn-container">
+        <button type="button" class="vote-button" onclick="vote(0)">Socialistas</button>
+        <button type="button" class="vote-button" onclick="vote(1)">Liberales</button>
+        <button type="button" class="vote-button" onclick="vote(2)">Animalistas</button>
+        <button type="button" class="vote-button" onclick="vote(3)">Centristas</button>
+        <button type="button" class="vote-button" onclick="vote(4)">Ecologistas</button>
+        <button type="button" class="reset-button" onclick="resetVotes()">Reset</button>
+        <a href="../index.html" class="btn btn-primary btn-back">Back</a>
+      </div>
+      <div class="chart-container">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script>
+      let votes = [0, 0, 0, 0, 0];
+      let ctx = document.getElementById('myChart').getContext('2d');
+      let myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Socialistas', 'Liberales', 'Animalistas', 'Centristas', 'Ecologistas'],
+          datasets: [{
+            data: votes,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(255, 159, 64, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true
+        }
+      });
+
+      function vote(partyIndex) {
+        votes[partyIndex]++;
+        myChart.update();
+      }
+
+      function resetVotes() {
+        votes = [0, 0, 0, 0, 0];
+        myChart.data.datasets[0].data = votes;
+        myChart.update();
+      }
+    </script>
+  </body>
+</html>

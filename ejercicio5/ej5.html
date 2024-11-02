@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 5 - DOM básico</title>
+    <!-- Añade Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 12px;
+        background-color: #333;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      .list-group-item {
+        color: #000; /* Color de la letra en negro */
+      }
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .btn-primary, .btn-back {
+        flex: 1; /* Asegura que los botones tengan el mismo tamaño */
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul id="lista" class="list-group my-3">
+        <li class="list-group-item">Lorem ipsum dolor sit amet</li>
+        <li class="list-group-item">Consectetuer adipiscing elit</li>
+        <li class="list-group-item">Sed mattis enim vitae orci</li>
+        <li class="list-group-item">Phasellus libero</li>
+        <li class="list-group-item">Maecenas nisl arcu</li>
+      </ul>
+      <div class="btn-container">
+        <input type="button" value="Añadir elemento" class="btn btn-primary" onclick="addElement()" />
+        <a href="../index.html" class="btn btn-primary btn-back">Back</a> 
+      </div>
+    </div>
+    <script type="text/javascript">
+      function addElement() {
+        var list = document.getElementById('lista');
+        var newItem = document.createElement('li');
+        newItem.className = 'list-group-item';
+        var itemCount = list.getElementsByTagName('li').length + 1;
+        newItem.textContent = 'Elemento ' + itemCount;
+        list.appendChild(newItem);
+      }
+    </script>
+  </body>
+</html>

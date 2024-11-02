@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 6 - DOM básico</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 12px;
+        background-color: #333;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      .btn-back {
+        margin-top: 20px;
+      }
+    </style>
+    <script type="text/javascript">
+      function toggleSection(link) {
+        var section = link.previousElementSibling; // Selecciona el elemento <p> previo
+        if (section.style.display === 'none') {
+          section.style.display = 'block';
+          link.textContent = 'Ocultar contenidos';
+        } else {
+          section.style.display = 'none';
+          link.textContent = 'Mostrar contenidos';
+        }
+      }
+      // Añade evento de click para todos los enlaces, excepto el botón "Back"
+      window.onload = function() {
+        var links = document.querySelectorAll('a:not(.btn-back)');
+        links.forEach(function(link) {
+          link.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleSection(this);
+          });
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+          enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+          commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+          vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+          aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum
+          elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+          rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+          odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+          dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+        <a href="#">Ocultar contenidos</a>
+      </div>
+      <br />
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+          enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+          commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+          vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+          aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum
+          elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+          rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+          odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+          dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+        <a href="#">Ocultar contenidos</a>
+      </div>
+      <br />
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis
+          enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+          commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+          vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+          aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum
+          elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut,
+          rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
+          odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum
+          dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+        <a href="#">Ocultar contenidos</a>
+      </div>
+      <a href="../index.html" class="btn btn-primary btn-back">Back</a>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>

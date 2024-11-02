@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Formulario de Registro</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #333;
+      border-radius: 12px;
+      background-color: #333;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .btn-back {
+      margin-top: 20px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center my-4">Formulario de Registro</h2>
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-sm-6 mb-3">
+          <label for="firstName">Nombre</label>
+          <input type="text" class="form-control" id="firstName" required>
+          <div class="invalid-feedback">
+            Por favor, introduzca su nombre.
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <label for="lastName">Apellido</label>
+          <input type="text" class="form-control" id="lastName" required>
+          <div class="invalid-feedback">
+            Por favor, introduzca su apellido.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-sm-6 mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" required>
+          <div class="invalid-feedback">
+            Por favor, introduzca un email válido.
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <label for="password">Contraseña</label>
+          <input type="password" class="form-control" id="password" required>
+          <div class="invalid-feedback">
+            Por favor, introduzca una contraseña.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Registrarse</button>
+    </form>
+    <a href="../index.html" class="btn btn-primary btn-back">Back</a>
+  </div>
+
+  <script>
+    //  validación
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

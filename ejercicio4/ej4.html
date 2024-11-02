@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    <title>Ejercicio 4 - DOM básico</title> 
+    <link rel="stylesheet" href="ej4.css" /> 
+    <script type="text/javascript"> 
+      var isVisible = false; // Variable global 
+      function toggleText() { 
+        var additionalText = document.querySelector('.additional'); 
+        var linkText = document.querySelector('a'); 
+        if (isVisible) { 
+          additionalText.classList.add('hidden');
+          additionalText.classList.remove('visible'); 
+          linkText.textContent = 'Seguir leyendo'; 
+        } else { 
+          additionalText.classList.add('visible'); 
+          additionalText.classList.remove('hidden'); 
+          linkText.textContent = 'Ocultar exceso de texto'; 
+        } 
+        isVisible = !isVisible; // Cambia el estado de visibilidad 
+        } 
+      </script> 
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+      <style> 
+        body { 
+          background-color: #1a1a1a; 
+          color: #e0e0e0; 
+          font-family: Arial, sans-serif; margin: 20px; 
+        } 
+        .container { 
+          text-align: center; 
+          padding: 20px; 
+          border: 1px solid #333; 
+          border-radius: 12px; 
+          background-color: #333; 
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+        } 
+        .btn-back { margin-top: 20px; } 
+      </style> 
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim
+      vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+      commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+      vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+      aliquam vitae, ultrices porttitor, pede.
+      <!-- Inicio texto a mostrar/esconder -->
+      <span class="additional hidden">
+        Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna
+        sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis
+        eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante
+        quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing
+        elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae,
+        venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam
+        ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer
+        lacus. Vestibulum venenatis erat eu odio. Praesent id metus. Nullam sit
+        amet nisl elementum elit convallis malesuada. Phasellus magna sem,
+        semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu
+        adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam
+        non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae,
+        venenatis ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam
+        ullamcorper. Duis accumsan metus eu urna. Aenean vitae enim. Integer
+        lacus. Vestibulum venenatis erat eu odio. Praesent id metus.
+      </span>
+      <!-- Fin texto a mostrar/esconder -->
+    </p>
+    <a href="#" onclick="toggleText();">Seguir leyendo</a>
+    <script type="text/javascript" src="js/main.js"></script>
+    <p></p>
+    <div class="container">
+      <a href="../index.html" class="btn btn-primary btn-back">Back</a> 
+    </div>
+  </body>
+</html>
